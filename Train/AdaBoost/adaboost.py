@@ -7,13 +7,13 @@ from sklearn.ensemble import AdaBoostClassifier
 import numpy as np
 import pandas as pd
 
-train_load = np.genfromtxt('train.csv', delimiter=',')
+train_load = np.genfromtxt('../train_knn.csv', delimiter=',')
 train_data = np.delete(train_load, 0, 0)
 cols = len(train_data[0])
 train_label = train_data[:, 0]
 train_data = train_data[:, [x for x in range(1, cols)]]
 
-test_load = np.genfromtxt('test.csv', delimiter=',')
+test_load = np.genfromtxt('../test_knn.csv', delimiter=',')
 test_data = np.delete(test_load, 0, 0)
 
 # train_data , test_data , train_label , test_label = train_test_split(x,y,test_size=0.2)
@@ -29,7 +29,7 @@ output = {
 
 output['Danceability'] = ty
 
-pd.DataFrame(output).to_csv('out.csv', index=False)
+pd.DataFrame(output).to_csv('AdaBoost.csv', index=False)
 
 '''mae = 0
 for i in range(len(ty)) :
